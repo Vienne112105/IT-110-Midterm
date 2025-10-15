@@ -180,3 +180,21 @@ document.addEventListener('DOMContentLoaded', function() {
     // Focus on input field
     cityInput.focus();
 });
+
+// Additional utility functions
+function formatDate(timestamp) {
+    return new Date(timestamp * 1000).toLocaleDateString();
+}
+
+function formatTime(timestamp) {
+    return new Date(timestamp * 1000).toLocaleTimeString();
+}
+
+// Error handling for network issues
+window.addEventListener('online', function() {
+    hideError();
+});
+
+window.addEventListener('offline', function() {
+    showError('You are currently offline. Please check your internet connection.');
+});
