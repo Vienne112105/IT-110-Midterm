@@ -169,3 +169,14 @@ function showError(message) {
 function hideError() {
     errorMessage.classList.add('hidden');
 }
+
+// Initialize app
+document.addEventListener('DOMContentLoaded', function() {
+    // Check if API key is configured
+    if (API_KEY === 'your_api_key_here') {
+        showError('API key not configured. Please add your OpenWeatherMap API key to the script.js file.');
+    }
+    
+    // Focus on input field
+    cityInput.focus();
+});
