@@ -27,3 +27,31 @@ const cloudiness = document.getElementById('cloudiness');
 // Event Listeners
 searchBtn.addEventListener('click', handleSearch);
 currentLocationBtn.addEventListener('click', handleCurrentLocation);
+
+//Search function
+cityInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        handleSearch();
+    }
+});
+
+async function handleSearch() {
+    const city = cityInput.value.trim();
+    
+    if (!city) {
+        showError('Please enter a city name');
+        return;
+    }
+    
+    try {
+        showLoading();
+        const weatherData = await fetchWeatherData(city);
+        displayWeatherData(weatherData);
+        hideError();
+    } catch (error) {
+        console.error('Error fetching weather data:', error);
+        showError('Could not fetch weather data. Please check your internet connection and try again.');
+    } finally {
+        hideLoading();
+    }
+}
