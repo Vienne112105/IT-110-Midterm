@@ -55,3 +55,27 @@ async function handleSearch() {
         hideLoading();
     }
 }
+
+// Current location function
+async function handleCurrentLocation() {
+    if (!navigator.geolocation) {
+        showError('Geolocation is not supported by this browser');
+        return;
+    }
+    
+    try {
+        showLoading();
+        
+        const position = await getCurrentPosition();
+        const { latitude, longitude } = position.coords;
+        
+        const weatherData = await fetchWeatherByCoordinates(latitude, longitude);
+        displayWeatherData(weatherData);
+        hideError();
+    } catch (error) {
+        console.error('Error getting current location:', error);
+        showError('Could not get your current location. Please try searching for a city instead.');
+    } finally {
+        hideLoading();
+    }
+}
