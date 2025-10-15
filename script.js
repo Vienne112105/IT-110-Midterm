@@ -23,3 +23,7 @@ const visibility = document.getElementById('visibility');
 const pressure = document.getElementById('pressure');
 const uvIndex = document.getElementById('uvIndex');
 const cloudiness = document.getElementById('cloudiness');
+
+// Event Listeners
+searchBtn.addEventListener('click', handleSearch);
+currentLocationBtn.addEventListener('click', handleCurrentLocation);
