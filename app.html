@@ -8,5 +8,118 @@
 </head>
 <body>
     
+    <header class="app-header">
+        <nav>
+            <a href="index.html" class="nav-link">← Back to Portfolio</a>
+        </nav>
+        <h1>🌤️ Weather Checker</h1>
+        <p>Get real-time weather information for any location</p>
+    </header>
+
+     <main class="app-main">
+        <div class="weather-container">
+            <div class="search-section">
+                <div class="search-box">
+                    <input type="text" id="cityInput" placeholder="Enter city name (e.g., New York, London, Tokyo)" class="city-input">
+                    <button id="searchBtn" class="search-btn">Search Weather</button>
+                </div>
+                <div class="location-info">
+                    <button id="currentLocationBtn" class="location-btn">📍 Use My Location</button>
+                </div>
+            </div>
+
+            <div id="loadingSpinner" class="loading hidden">
+                <div class="spinner"></div>
+                <p>Fetching weather data...</p>
+            </div>
+
+            <div id="errorMessage" class="error-message hidden">
+                <p>❌ Could not fetch weather data. Please check your internet connection and try again.</p>
+            </div>
+
+            <div id="weatherResults" class="weather-results hidden">
+                <div class="weather-header">
+                    <h2 id="cityName"></h2>
+                    <p id="countryName"></p>
+                </div>
+
+                <div class="weather-main">
+                    <div class="temperature-section">
+                        <div class="current-temp">
+                            <span id="temperature"></span>
+                            <span class="temp-unit">°C</span>
+                        </div>
+                        <div class="weather-icon">
+                            <img id="weatherIcon" src="" alt="Weather icon">
+                        </div>
+                        <div class="weather-description">
+                            <p id="weatherDesc"></p>
+                        </div>
+                    </div>
+
+                    <div class="weather-details">
+                        <div class="detail-card">
+                            <div class="detail-icon">💨</div>
+                            <div class="detail-info">
+                                <span class="detail-label">Wind Speed</span>
+                                <span id="windSpeed" class="detail-value"></span>
+                            </div>
+                        </div>
+
+                        <div class="detail-card">
+                            <div class="detail-icon">💧</div>
+                            <div class="detail-info">
+                                <span class="detail-label">Humidity</span>
+                                <span id="humidity" class="detail-value"></span>
+                            </div>
+                        </div>
+
+                        <div class="detail-card">
+                            <div class="detail-icon">🌡️</div>
+                            <div class="detail-info">
+                                <span class="detail-label">Feels Like</span>
+                                <span id="feelsLike" class="detail-value"></span>
+                            </div>
+                        </div>
+
+                        <div class="detail-card">
+                            <div class="detail-icon">👁️</div>
+                            <div class="detail-info">
+                                <span class="detail-label">Visibility</span>
+                                <span id="visibility" class="detail-value"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="additional-info">
+                    <div class="info-section">
+                        <h3>Current Conditions</h3>
+                        <div class="conditions-grid">
+                            <div class="condition-item">
+                                <span class="condition-label">Pressure:</span>
+                                <span id="pressure" class="condition-value"></span>
+                            </div>
+                            <div class="condition-item">
+                                <span class="condition-label">UV Index:</span>
+                                <span id="uvIndex" class="condition-value"></span>
+                            </div>
+                            <div class="condition-item">
+                                <span class="condition-label">Cloudiness:</span>
+                                <span id="cloudiness" class="condition-value"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="app-footer">
+        <p>Powered by OpenWeatherMap API</p>
+    </footer>
+
+    <script src="script.js"></script>
+
 </body>
 </html>
