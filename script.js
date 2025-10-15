@@ -119,3 +119,32 @@ async function fetchWeatherByCoordinates(lat, lon) {
     return await response.json();
 }
 
+// Display weather data
+function displayWeatherData(data) {
+    // Basic information
+    cityName.textContent = data.name;
+    countryName.textContent = data.sys.country;
+    
+    // Temperature and weather
+    temperature.textContent = Math.round(data.main.temp);
+    weatherDesc.textContent = data.weather[0].description;
+    
+    // Weather icon
+    const iconCode = data.weather[0].icon;
+    weatherIcon.src = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
+    weatherIcon.alt = data.weather[0].description;
+    
+    // Weather details
+    windSpeed.textContent = `${Math.round(data.wind.speed * 3.6)} km/h`; // Convert m/s to km/h
+    humidity.textContent = `${data.main.humidity}%`;
+    feelsLike.textContent = `${Math.round(data.main.feels_like)}°C`;
+    visibility.textContent = `${Math.round(data.visibility / 1000)} km`; // Convert m to km
+    pressure.textContent = `${data.main.pressure} hPa`;
+    cloudiness.textContent = `${data.clouds.all}%`;
+    
+    // UV Index (not available in basic weather API, using placeholder)
+    uvIndex.textContent = 'N/A';
+    
+    // Show results
+    weatherResults.classList.remove('hidden');
+}
