@@ -376,3 +376,79 @@ main {
     font-size: 0.95rem;
     line-height: 1.5;
 }
+
+/* Weather App Styles */
+.weather-container {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 1rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    max-height: calc(100vh - 150px);
+    overflow-y: auto;
+}
+
+.search-section {
+    margin-bottom: 1rem;
+}
+
+.search-box {
+    display: flex;
+    gap: 0.8rem;
+    margin-bottom: 0.8rem;
+    flex-wrap: wrap;
+}
+
+.city-input {
+    flex: 1;
+    min-width: 250px;
+    padding: 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 50px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.city-input:focus {
+    border-color: #88BDF2;
+}
+
+.search-btn {
+    background: linear-gradient(135deg, #88BDF2, #6A89A7);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(136, 189, 242, 0.3);
+}
+
+.search-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(136, 189, 242, 0.4);
+}
+
+.location-btn {
+    background: linear-gradient(135deg, #BDDDFC, #88BDF2);
+    color: #384959;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(189, 221, 252, 0.3);
+}
+
+.location-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(189, 221, 252, 0.4);
+}
