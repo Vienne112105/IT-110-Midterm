@@ -79,3 +79,10 @@ async function handleCurrentLocation() {
         hideLoading();
     }
 }
+
+// Get current position with promise
+function getCurrentPosition() {
+    return new Promise((resolve, reject) => {
+        navigator.geolocation.getCurrentPosition(resolve, reject);
+    });
+}
