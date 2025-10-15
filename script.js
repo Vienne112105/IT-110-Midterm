@@ -86,3 +86,22 @@ function getCurrentPosition() {
         navigator.geolocation.getCurrentPosition(resolve, reject);
     });
 }
+
+// Fetch weather data by city name
+async function fetchWeatherData(city) {
+    const url = `${API_BASE_URL}?q=${encodeURIComponent(city)}&appid=${API_KEY}&units=metric`;
+    
+    const response = await fetch(url);
+    
+    if (!response.ok) {
+        if (response.status === 404) {
+            throw new Error('City not found. Please check the spelling and try again.');
+        } else if (response.status === 401) {
+            throw new Error('Invalid API key. Please check your API configuration.');
+        } else {
+            throw new Error(`API request failed with status: ${response.status}`);
+        }
+    }
+    
+    return await response.json();
+}
