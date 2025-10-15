@@ -148,3 +148,24 @@ function displayWeatherData(data) {
     // Show results
     weatherResults.classList.remove('hidden');
 }
+
+// UI Helper Functions
+function showLoading() {
+    loadingSpinner.classList.remove('hidden');
+    weatherResults.classList.add('hidden');
+    errorMessage.classList.add('hidden');
+}
+
+function hideLoading() {
+    loadingSpinner.classList.add('hidden');
+}
+
+function showError(message) {
+    errorMessage.querySelector('p').textContent = message;
+    errorMessage.classList.remove('hidden');
+    weatherResults.classList.add('hidden');
+}
+
+function hideError() {
+    errorMessage.classList.add('hidden');
+}
