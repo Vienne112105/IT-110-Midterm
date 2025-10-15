@@ -105,3 +105,17 @@ async function fetchWeatherData(city) {
     
     return await response.json();
 }
+
+// Fetch weather data by coordinates
+async function fetchWeatherByCoordinates(lat, lon) {
+    const url = `${API_BASE_URL}?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`;
+    
+    const response = await fetch(url);
+    
+    if (!response.ok) {
+        throw new Error(`API request failed with status: ${response.status}`);
+    }
+    
+    return await response.json();
+}
+
