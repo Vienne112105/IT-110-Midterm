@@ -45,10 +45,8 @@ header::before {
 
 header h1 {
     font-size: 3rem;
-    color: #2c3e50;
     margin-bottom: 0.8rem;
     font-weight: 800;
-    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.2);
     position: relative;
     z-index: 1;
     background: linear-gradient(135deg, #2c3e50, #34495e, #2c3e50);
@@ -56,6 +54,21 @@ header h1 {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+/* Keep emojis inside headers from inheriting gradient text */
+header h1 .emoji {
+    -webkit-text-fill-color: initial;
+    background: none;
+    background-clip: border-box;
+    filter: none;
+}
+
+.app-header h1 .emoji {
+    -webkit-text-fill-color: initial;
+    background: none;
+    background-clip: border-box;
+    filter: none;
 }
 
 header p {
@@ -72,6 +85,38 @@ header p {
     display: inline-block;
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Team Introduction */
+.team-intro {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.team-intro h2 {
+    color: #384959;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+}
+
+.team-intro p {
+    color: #6A89A7;
+    font-size: 1.1rem;  
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: justify;
+}
+
+.team-intro p:last-child {
+    margin-bottom: 0;
 }
 
 
@@ -312,6 +357,7 @@ main {
     padding: 2rem;
     border-radius: 15px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
 }
 
 .team-profiles h2 {
@@ -355,7 +401,15 @@ main {
     justify-content: center;
     font-size: 2rem;
     margin: 0 auto;
-    color: white;
+    overflow: hidden;
+}
+
+.placeholder-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
 }
 
 .member-card h3 {
@@ -376,6 +430,41 @@ main {
     font-size: 0.95rem;
     line-height: 1.5;
 }
+
+.contact-links {
+    margin-top: 1rem;
+    display: flex;
+    gap: 0.8rem;
+    justify-content: center;
+}
+
+.contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 0.9rem;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #2c3e50;
+    background: rgba(136, 189, 242, 0.15);
+    border: 1px solid #88BDF2;
+    transition: all 0.2s ease;
+}
+
+.contact-link img {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+}
+
+
+.contact-link:hover {
+    background: rgba(136, 189, 242, 0.25);
+    transform: translateY(-1px);
+}
+
 
 /* Weather App Styles */
 .weather-container {
