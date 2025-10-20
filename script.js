@@ -35,6 +35,17 @@ cityInput.addEventListener('keypress', (e) => {
     }
 });
 
+// Prevent invalid characters from being typed
+cityInput.addEventListener('input', (e) => {
+    const value = e.target.value;
+    // Remove any characters that aren't letters, spaces, hyphens, or apostrophes
+    const cleanedValue = value.replace(/[^a-zA-Z\s\-']/g, '');
+    if (value !== cleanedValue) {
+        e.target.value = cleanedValue;
+    }
+});
+
+
 async function handleSearch() {
     const city = cityInput.value.trim();
     
@@ -42,6 +53,14 @@ async function handleSearch() {
         showError('Please enter a city name');
         return;
     }
+
+    // Validate that input contains only letters, spaces, hyphens, and apostrophes (city names)
+    const cityNamePattern = /^[a-zA-Z\s\-']+$/;
+    if (!cityNamePattern.test(city)) {
+        showError('Please enter a valid city name (letters, spaces, hyphens, and apostrophes only)');
+        return;
+    }
+    
     
     try {
         showLoading();
@@ -50,7 +69,8 @@ async function handleSearch() {
         hideError();
     } catch (error) {
         console.error('Error fetching weather data:', error);
-        showError('Could not fetch weather data. Please check your internet connection and try again.');
+        // Display the specific error message from the API
+        showError(error.message);
     } finally {
         hideLoading();
     }
