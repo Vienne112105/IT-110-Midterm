@@ -222,36 +222,6 @@ main {
     font-size: 1.1rem;
 }
 
-.features {
-    margin: 1.5rem 0;
-}
-
-.features h3 {
-    color: #384959;
-    margin-bottom: 1rem;
-    font-size: 1.3rem;
-}
-
-.features ul {
-    list-style: none;
-    padding-left: 0;
-}
-
-.features li {
-    padding: 0.5rem 0;
-    color: #6A89A7;
-    position: relative;
-    padding-left: 1.5rem;
-}
-
-.features li::before {
-    content: "✓";
-    position: absolute;
-    left: 0;
-    color: #88BDF2;
-    font-weight: bold;
-}
-
 .cta {
     text-align: center;
     margin-top: 2rem;
