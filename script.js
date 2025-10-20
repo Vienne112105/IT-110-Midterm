@@ -54,13 +54,12 @@ async function handleSearch() {
         return;
     }
 
-    // Validate that input contains only letters, spaces, hyphens, and apostrophes (city names)
+    // Validate that input contains only letters, spaces, hyphens, and apostrophes
     const cityNamePattern = /^[a-zA-Z\s\-']+$/;
     if (!cityNamePattern.test(city)) {
         showError('Please enter a valid city name (letters, spaces, hyphens, and apostrophes only)');
         return;
     }
-    
     
     try {
         showLoading();
@@ -70,7 +69,7 @@ async function handleSearch() {
     } catch (error) {
         console.error('Error fetching weather data:', error);
         // Display the specific error message from the API
-        showError(error.message);
+        showError("Failed to fetch data. Check your internet connection");
     } finally {
         hideLoading();
     }
@@ -162,7 +161,7 @@ function displayWeatherData(data) {
     pressure.textContent = `${data.main.pressure} hPa`;
     cloudiness.textContent = `${data.clouds.all}%`;
     
-    // UV Index (not available in basic weather API, using placeholder)
+    // UV Index (not available in basic weather API)
     uvIndex.textContent = 'N/A';
     
     // Show results
@@ -200,15 +199,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Focus on input field
     cityInput.focus();
 });
-
-// Additional utility functions
-function formatDate(timestamp) {
-    return new Date(timestamp * 1000).toLocaleDateString();
-}
-
-function formatTime(timestamp) {
-    return new Date(timestamp * 1000).toLocaleTimeString();
-}
 
 // Error handling for network issues
 window.addEventListener('online', function() {
