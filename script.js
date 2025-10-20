@@ -173,8 +173,8 @@ function hideError() {
 // Initialize app
 document.addEventListener('DOMContentLoaded', function() {
     // Check if API key is configured
-    if (API_KEY === '352aee8a9cdf69245e06d72aef48ab13') {
-        showError('API key not configured. Please add your OpenWeatherMap API key to the script.js file.');
+    if (!API_KEY === '352aee8a9cdf69245e06d72aef48ab13') {
+        showError('API key not configured.');
     }
     
     // Focus on input field
