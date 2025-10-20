@@ -68,7 +68,6 @@ async function handleSearch() {
         hideError();
     } catch (error) {
         console.error('Error fetching weather data:', error);
-        // Display the specific error message from the API
         showError("Failed to fetch data. Check your internet connection");
     } finally {
         hideLoading();
