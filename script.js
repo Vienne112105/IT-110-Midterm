@@ -48,6 +48,7 @@ cityInput.addEventListener('input', (e) => {
 
 async function handleSearch() {
     const city = cityInput.value.trim();
+    const cityNamePattern = /^[a-zA-Z\s\-']+$/;
     
     if (!city) {
         showError('Please enter a city name');
@@ -55,7 +56,6 @@ async function handleSearch() {
     }
 
     // Validate that input contains only letters, spaces, hyphens, and apostrophes
-    const cityNamePattern = /^[a-zA-Z\s\-']+$/;
     if (!cityNamePattern.test(city)) {
         showError('Please enter a valid city name (letters, spaces, hyphens, and apostrophes only)');
         return;

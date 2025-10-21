@@ -1,9 +1,9 @@
-IT-110 Weather Checker Application
+IT-110 RainBros Application
 =====================================
 
 Group Information:
 ------------------
-Group Name: IT-110 Weather Checker Team
+Group Name: IT-110 Group 7
 Members:
 Veveinne Mike Sunido
 Ivan Kleinth Estremos
